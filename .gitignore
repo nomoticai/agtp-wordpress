@@ -1,0 +1,86 @@
+# =============================================================================
+# agtp-wordpress — WordPress plugin wrapping agtp-php
+# =============================================================================
+# Composer: agtp/agtp-wordpress  (type: wordpress-plugin)
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Secrets — never commit any of these, ever
+# -----------------------------------------------------------------------------
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+*.der
+*.gpg
+*.asc
+.env
+.env.*
+!.env.example
+secrets/
+credentials/
+
+# wp-config.php holds DB credentials and auth salts. Belongs to the
+# host site, never to a plugin repo — guard against accidents.
+wp-config.php
+wp-config-sample.php
+
+# -----------------------------------------------------------------------------
+# Composer artifacts
+# -----------------------------------------------------------------------------
+vendor/
+composer.lock
+.phpunit.result.cache
+.phpunit.cache/
+
+# PHPUnit coverage reports
+coverage/
+clover.xml
+
+# -----------------------------------------------------------------------------
+# WordPress local-development scaffolding
+# -----------------------------------------------------------------------------
+# Plugin authors sometimes drop a full WP install next to the plugin
+# for local testing. Make sure none of that lands in the repo.
+wordpress/
+wp-content/
+wp-admin/
+wp-includes/
+*.sql
+
+# -----------------------------------------------------------------------------
+# Editor / IDE / agent tooling
+# -----------------------------------------------------------------------------
+.vscode/
+.idea/
+.claude/
+*.swp
+*.swo
+*~
+.project
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# -----------------------------------------------------------------------------
+# OS junk
+# -----------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# -----------------------------------------------------------------------------
+# Local notes / scratchpads
+# -----------------------------------------------------------------------------
+NOTES.md
+TODO.md
+SCRATCH.md
+*.scratch
+*.local
