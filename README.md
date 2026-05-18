@@ -5,15 +5,17 @@ Transfer Protocol (AGTP). Plugin developers write handler classes
 using the same `#[AgtpEndpoint]` attribute they would in any other
 PHP context.
 
-Pairs with:
-- [`agtp-php`](../agtp-php/) — the language library
-- [`mod_php`](../mod_php/) — the runtime client (wrapped by the
+Pairs with two Composer packages from the [`agtp-php`][agtp-php-repo]
+repo:
+- [`agtp/agtp-php`][agtp-php] — the language library
+- [`agtp/mod-php`][mod-php] — the runtime client (wrapped by the
   `wp agtp serve` WP-CLI command)
 
 AGTP runs on its own port (4480) via `agtpd`. This plugin is the
 WordPress-side worker that connects to it. WordPress's HTTP request
 pipeline is unaffected — visitors hitting your site over HTTP still
-get the normal WordPress experience.
+get the normal WordPress experience. The reference `agtpd` daemon
+(Python) lives in the [AGTP spec repo][spec-repo].
 
 ## Requirements
 
@@ -150,6 +152,19 @@ public function testListPosts(): void
 
 ## Related
 
-- [`docs/architecture/server-modules.md`](../docs/architecture/server-modules.md)
-- [`agtp-php/`](../agtp-php/) — handler library
-- [`agtp_drupal/`](../agtp_drupal/) — equivalent for Drupal
+- [AGTP spec repo][spec-repo] — drafts, `agtpd` reference daemon,
+  cross-language conformance tests
+- [Server-modules architecture][arch] — daemon / module / library
+  layering
+- [`agtp-php`][agtp-php-repo] — handler SDK + `mod_php` runtime
+- [`agtp-drupal`][drupal], [`agtp-symfony`][symfony],
+  [`agtp-laravel`][laravel] — sibling framework integrations
+
+[agtp-php]: https://packagist.org/packages/agtp/agtp-php
+[mod-php]: https://packagist.org/packages/agtp/mod-php
+[agtp-php-repo]: https://github.com/nomoticai/agtp-php
+[spec-repo]: https://github.com/nomoticai/agtp
+[arch]: https://github.com/nomoticai/agtp/blob/main/docs/architecture/server-modules.md
+[drupal]: https://github.com/nomoticai/agtp-drupal
+[symfony]: https://github.com/nomoticai/agtp-symfony
+[laravel]: https://github.com/nomoticai/agtp-laravel
